@@ -2,16 +2,29 @@
   (function() {
     var deck = ['2s','3s','4s','5s','6s','7s','8s','9s','10s','js','qs','ks','as','2c','3c','4c','5c','6c','7c','8c','9c','10c','jc','qc','kc','ac','2h','3h','4h','5h','6h','7h','8h','9h','10h','jh','qh','kh','ah','2d','3d','4d','5d','6d','7d','8d','9d','10d','jd','qd','kd','ad'];
     var rand = deck[Math.floor(Math.random() * deck.length)];
-
     var answer = rand;
-    var guess = prompt('Pick a card with a suit. ex: 2s for two of spades.').toLowerCase();
+    var guess = prompt('Pick a card with a suit. (eg. 2s for 2spades)', 'Type \'quit\' to give up').toLowerCase();
+    var guess2 = prompt('Now pick a suit.').toLowerCase();
+
+    console.log(answer);
+
+    var cards = new Card(name, suit, faceValue) {
+      this.name = name;
+      this.suit = suit;
+      this.faceValue = faceValue;
+    }
+
+    var spade5 = new Card('5 of spades', 'Spades', '5');
 
     while (true) {
       if (guess === answer) {
         alert('You are correct! Good job.');
         break;
+      } else if (guess === 'quit') {
+        alert('No one likes a quitter. The answer was ' + answer);
+        break;
       } else if (guess !== answer) {
-        guess = prompt('Not quite. Guess again.');
+        guess = prompt('Not quite. Guess again.', 'Type \'quit\' to give up');
       }
     }
   })();
